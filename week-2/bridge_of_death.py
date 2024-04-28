@@ -1,5 +1,3 @@
-from z3 import *
-
 def func2(param_1,param_2,param_3):
     iVar1 = param_2 + (param_3 - param_2) // 2
     print("{0} {1}".format(param_1, iVar1))
