@@ -1,4 +1,4 @@
-with open("ciphertext.txt", 'r') as file:
+with open("sbxor_ciphertext.txt", 'r') as file:
   data = file.read()
 
 for i in range(256):

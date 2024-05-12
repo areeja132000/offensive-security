@@ -1,4 +1,5 @@
-import math 
+import binascii
+import math
 
 def normalized_hamming(a, b):
   dist = bin(a ^ b).count('1')
@@ -10,7 +11,7 @@ def create_sublists(num_lists):
     dict_of_sublists['l'+str(i)] = hex_list[max_key_length*i:max_key_length*i+max_key_length]
   return dict_of_sublists 
 
-with open("ciphertext2.txt", 'r') as file:
+with open("mbxor_ciphertext.txt", 'r') as file:
   data = file.read()
   hex_list = []
   for x in range(len(data)//2):
@@ -22,7 +23,7 @@ for max_key_length in range(2, 30):
   num_lists = math.ceil(len(hex_list)/max_key_length)
   dict_of_sublists = create_sublists(num_lists)
   dict_length = len(dict_of_sublists)
-  if (dict_length%2 == 0):
+  if (dict_length%2 != 0):
     dict_length = dict_length-2
   else:
     dict_length = dict_length-1
@@ -43,13 +44,8 @@ keys_lengths_hamming.sort(key=lambda s: s[1])
 print("Best key lengths:")
 for i in range (5):
   print("key length: {0} average hamming distance: {1}".format(keys_lengths_hamming[i][0], keys_lengths_hamming[i][1]))
-
-
-
-
-
-
-
+  if (i == 0):
+    best_key_length = keys_lengths_hamming[i][0]
 
 
  

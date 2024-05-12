@@ -50,14 +50,12 @@ while True:
 
   if (elapsed_time < 4):
     index +=1
-    print("this")
   else:
     leaked_string = leaked_string + characters[index]
     print(leaked_string)
     index = 0
     i+=1
   if index > 64:
-    print("huh")
     break
 
 print(leaked_string)
